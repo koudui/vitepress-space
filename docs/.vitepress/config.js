@@ -2,6 +2,8 @@
 module.exports = {
   title: 'One Space', // 站点标题
   description: '一度空间', // 站点描述信息
+  appearance: true,
+  lastUpdated: true, // 显示上次更新时间
   base: '/vitepress/', // 站点部署的根路径，可以设置为二级路径，base的配置需要以/开头并且/结尾，例如/base/
   // lang: 'en-US', // 站点的lang属性，仅会出现在使用`vitepress build`构建时，使用`vitepress dev`则不会有
   // 主题配置
@@ -9,14 +11,13 @@ module.exports = {
     // 头部导航
     nav: [
       {text: '首页', link: '/'}, // 导航菜单可嵌套，使用items列举子菜单
-      {text: '里程碑', link: '/mailpost/'}, // 目录下的index.md会被转换为index.html，设置路由地址时需要/结尾或者写全地址/about/index.html
+      {text: '里程碑', link: '/mailpost/2022.md'}, // 目录下的index.md会被转换为index.html，设置路由地址时需要/结尾或者写全地址/about/index.html
     ],
     // 侧边导航
     sidebar: {
       // 根据路由匹配多个不同的侧边栏
       '/mailpost/': [
         {
-          text: '历程',
           items: [
             { text: '2022', link: '/mailpost/2022.md'},
           ]
@@ -26,6 +27,12 @@ module.exports = {
         {
           // 侧边栏嵌套
           items: [
+            {
+              text: 'JavaScript',
+              items: [
+                {text: '开箱即用的js代码块', link: '/javascript/开箱即用的js代码块.md'}
+              ]
+            },
             {
               text: '其他',
               items: [
@@ -37,6 +44,8 @@ module.exports = {
       ]
     },
     siteTitle: 'One Space', // 设置站点标题
+    outline: 'deep',
+    lastUpdatedText: '上次更新'
   },
   markdown: {
     anchor: {
